@@ -24,6 +24,9 @@ ul
 list-style-type: none;
 }
 
+a:visited {
+  text-decoration: none;
+}
 
 /* Icon Fonts */
 
@@ -141,6 +144,11 @@ html { background-color: #2E0854; }
 .list-group a,
 .list-group a list {
   width: 100%;
+}
+
+.list-group a,
+.list-group a:visited {
+    color: inherit;
 }
 
 .my-active {
