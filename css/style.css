@@ -1,0 +1,297 @@
+
+/* Page Styles
+================================ */
+
+* {
+	-moz-box-sizing: border-box;	
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font: normal 1.1em/1.5 sans-serif;
+	color: #222;
+	/*background-color: #edeff0;*/
+}
+
+/* Icon Fonts */
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+	    url('../fonts/icomoon.woff') format('woff'),
+	    url('../fonts/icomoon.tff') format('truetype'),
+	    url('../fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;	    
+}
+
+
+/* Layout Element Colors
+================================ */
+
+html { background-color: #2E0854; }
+/*.main-header       { background-color: #384047; }*/
+.main-nav a        { background-color: rgba(0,0,255,.05); } /*128,0,128,0.4); }*/
+/*.main-nav a:hover  { background-color: black; } /*#3f8abf; }*/
+/*.main-wrapper { background-color: blue;}*/
+
+/* Header, Banner and Footer Layout
+================================ */
+
+.main-header {
+	padding: 15px;
+	min-height: 100px;
+}
+/*.main-nav li {
+	margin-top: 15px;
+}*/
+.main-logo a, 
+.main-nav a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 15px;
+	border-radius: 5px;
+  
+	position: relative; /* made so that icons can be with respect to the main-nav and not the body */ 
+    /* if this was static before, then why no change of position when it went to relative.
+      this needs to be relative because the fonts below need to be inside this so we can set overflow
+      to hidden */
+  overflow: hidden; /* effect is to hide icons out of main-nav a area */
+ 
+}
+
+.main-nav li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+  border: 4px solid white; /*rgba(0,0,0,1); /*white*/
+  border-radius: 5px;
+}
+
+.main-nav a::before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	color: #fff;
+	position: absolute;
+	top: 5px; /* 5 from top of main-nav a area */
+	left: -30%; /* effect is to hide icon if overflow is hidden */
+    transition: .4s; /* effect is to slowly move into view */
+}
+
+.main-nav a:hover::before {
+    left: 10%; /* when hover, move the icon into view */
+}
+
+    /* fall back if no flexbox */
+    .no-flexbox a:hover::before {
+      left: 18px;
+    }
+
+.main-content {
+  width: 40%; /* this needs to be placed in media query */
+  margin: auto;
+  background-color: yellow;
+  margin-top: 70px;
+}
+
+/* Column Layout
+================================ */
+
+.col {
+	padding: 20px;
+}
+
+
+/* Imagery
+================================ */
+
+
+/* Float Clearfix
+================================ */
+
+.group:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+/* custom tab-pane elements */
+
+.my-tab-pane {
+  display: none;
+}
+
+.my-active {
+  display: block;
+}
+
+.dummyTab {
+  visibility: hidden;
+}
+
+/* target the searchTab tab */
+#searchTab {
+  border: 2px solid rgb(255,255,255); /*rgba(0,0,255,0.15);*/
+  border-radius: 5px;
+}
+
+#searchTab a,
+#searchTab a input {
+  background-color: rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.15);
+}
+
+#searchTab a input {
+  border: none;
+  height: 25px; /*100%; /* dont think this is doing anything, maybe parent is not large enough, maybe size depends on font size*/
+  width: 70%;
+  /*background-color: blue; /* debugging */
+  font-size: 1.05em;
+  text-align: center;
+}
+
+#searchTab:hover {
+  border: 5px solid purple;
+}
+
+#searchTab a input:focus { 
+    color: white;
+    outline: 0; /* no box around input on focus */
+}
+
+.img-circle {
+  display: inline-block;
+  border-radius: 100%;
+}
+
+h4 {
+  display: inline-block;
+}
+
+.list-group {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.list-group-item {
+  /*width: 70%;
+  display: block;     HAS NO EFFECT
+  border: 5px solid purple;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  height: 65px;*/
+
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+
+    -webkit-align-self: center;
+    align-self: center;
+    /* vertically align inside main-header, 
+  but doesn't quite align to header, aligns to 
+  main-nav. --- This is because main-nav height
+  has to be set to 100%, wrt header. */
+    flex-grow: 1; /* 1 -> evenly spaced */
+    -webkit-flex-grow: 1;
+    margin-left: 8px;
+    margin-right: 8px;
+    transition: .5s; /* transition here causes slow transition on and off hover */
+}
+
+/* Media Queries
+================================ */
+
+@media (min-width: 769px) {
+
+  body {
+  	padding-top: 120px;
+  }
+
+  /* Header and Banner Layout */
+
+  .main-header {
+  	/*position: fixed;
+  	top: 0px; 
+  	width:  50%;
+    margin: auto; 
+  	height: 120px; */
+
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 40%;
+    margin: 0 auto;
+
+  }
+
+  .main-nav {
+  	display: -webkit-flex;
+  	/* webkit to use with safari */
+  	display: flex;
+  	height: 100%;
+  }
+
+  .main-nav li {
+  	-webkit-align-self: center;
+  	align-self: center;
+  	/* vertically align inside main-header, 
+  but doesn't quite align to header, aligns to 
+  main-nav. --- This is because main-nav height
+  has to be set to 100%, wrt header. */
+    flex-grow: 1; /* 1 -> evenly spaced */
+    -webkit-flex-grow: 1;
+    margin-left: 8px;
+    margin-right: 8px;
+    transition: .5s; /* transition here causes slow transition on and off hover */
+  } 
+
+     /* backup for no-flexbox support */
+     .no-flexbox .main-nav li {
+       display: inline-block;
+       margin-top: 12px;
+       width: 150px;
+     }
+
+  .main-nav li:hover:not(.main-logo) {
+  /* tareget all main-nav li's except main-logo */
+    flex-grow: 2; /* on hover li gets larger */
+    border: 5px solid purple;
+    border-radius: 5px;
+    /*transition: .5s; putting transition here looks jerky because without hover is immediate*/
+  }
+
+  .main-logo:first-child {
+  	/* this css refers to the logo li */
+  	margin-right: 50px; /*auto;*/
+  	/* css is more specific than main-nav li above
+  	and so will apply. the 'auto' will push everything to
+  	the right. but why? */
+  	flex-grow: 1.5; /* make logo bigger */
+  	-webkit-flex-grow: 1.5;
+  }
+
+
+
+  .col {
+    -weebkit-flex: 1;
+    flex: 1; /* flex 1 gives all same width size */
+  }
+
+      /* fallback for no flex box */
+      .no-flexbox .col {
+        float: left;
+        width: 33.3%;
+      }
+ 
+
+}
