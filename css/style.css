@@ -136,6 +136,13 @@ html { background-color: #2E0854; }
   display: none;
 }
 
+.my-tab-pane,
+.list-group,
+.list-group a,
+.list-group a list {
+  width: 100%;
+}
+
 .my-active {
   display: block;
 }
