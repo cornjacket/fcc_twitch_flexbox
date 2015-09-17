@@ -43,17 +43,18 @@ list-style-type: none;
 ================================ */
 
 html { background-color: #2E0854; }
-/*.main-header       { background-color: #384047; }*/
+/*.main-header       { background-color: yellow; }/* */
 .main-nav a        { background-color: rgba(0,0,255,.05); } /*128,0,128,0.4); }*/
 /*.main-nav a:hover  { background-color: black; } /*#3f8abf; }*/
-/*.main-wrapper { background-color: blue;}*/
+/*.main-wrapper { background-color: blue;}/* */
+/*.main-content { background-color: red; }/* */
 
 /* Header, Banner and Footer Layout
 ================================ */
 
 .main-header {
 	padding: 15px;
-	min-height: 100px;
+	min-height: 80px;
 }
 /*.main-nav li {
 	margin-top: 15px;
@@ -104,8 +105,8 @@ html { background-color: #2E0854; }
 .main-content {
   width: 40%; /* this needs to be placed in media query */
   margin: auto;
-  background-color: yellow;
-  margin-top: 70px;
+  /*background-color: yellow;*/
+  margin-top: 100px;
 }
 
 /* Column Layout
@@ -187,7 +188,30 @@ h4 {
   display: flex;
   -webkit-flex-flow: column;
   flex-flow: column;  
+
+  /*border: 5px solid purple;
+  border-radius: 10px;*/
 }
+
+.list-group li {
+  background-color: rgba(255,255,255,0.7);
+  border: 5px solid purple;
+  border-radius: 15px;
+  height: 60px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}
+
+.list-group li:hover {
+  background-color: rgba(255,255,255,0.95);
+  border: 2px solid purple;
+  border-radius: 10px;
+  height: 70px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 
 .list-group-item {
   /*width: 70%;
@@ -196,7 +220,7 @@ h4 {
   border-radius: 10px;
   margin: auto;
   margin-top: 10px;
-  height: 65px;*/
+  /*height: 100px; -- doesn't seem to do anything */
 
   /*display: -webkit-flex;
   display: flex; dont think this is needed since parent has flex */
@@ -221,7 +245,7 @@ h4 {
 @media (min-width: 769px) {
 
   body {
-  	padding-top: 120px;
+  	padding-top: 100px;
   }
 
   /* Header and Banner Layout */

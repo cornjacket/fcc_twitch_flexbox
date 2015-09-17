@@ -199,7 +199,8 @@ var UserController = (function () {
     
   $(document).ready(function() {
     User.init(
-      ["freecodecamp", "storbeck", "terakilobyte", "medrybw", "habathcx","RobotCaleb","comster404","brunofin","thomasballinger","noobs2ninjas","beohoff","Sing_sing"],
+      ["freecodecamp", "storbeck", "medrybw","RobotCaleb","comster404","brunofin",
+       "noobs2ninjas", "Sing_sing"],
       function() {
         console.log("Inside callback");
         View.userRender(User.all(), "#all-list-group");
