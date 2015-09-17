@@ -18,6 +18,13 @@ body {
 	/*background-color: #edeff0;*/
 }
 
+/* this was not needed for main-nav but was needed for the streamer's list-group */
+ul
+{
+list-style-type: none;
+}
+
+
 /* Icon Fonts */
 
 @font-face {
@@ -178,6 +185,8 @@ h4 {
 .list-group {
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;  
 }
 
 .list-group-item {
@@ -189,10 +198,9 @@ h4 {
   margin-top: 10px;
   height: 65px;*/
 
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: column;
-  flex-flow: column;
+  /*display: -webkit-flex;
+  display: flex; dont think this is needed since parent has flex */
+
 
     -webkit-align-self: center;
     align-self: center;

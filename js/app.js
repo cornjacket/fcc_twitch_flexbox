@@ -82,11 +82,13 @@ var View = (function () {
     if (img_url === "" || img_url === null) 
       img_url = "http://isigned.org/images/anonymous.png"
     var template = "";
+    template += "<li>"
     template += "<a href='"+url+"' class='list-group-item "+disabled+"'>"
     template += "    <img class='pull-left img-circle'"
     template += "      src='"+img_url+"' alt='...' width='45'>"
     template += "      <h4 class='text-center'>"+name+" <small>"+status+"</small></h4>"
     template += "</a>"
+    template += "</li>"
     return template
  }
 
